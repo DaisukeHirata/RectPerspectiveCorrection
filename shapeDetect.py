@@ -1,4 +1,3 @@
-#!/usr/bin/python
 import math
 import numpy as np
 import cv2
@@ -85,17 +84,6 @@ while(cap.isOpened()):
                     warped = cv2.warpPerspective(frame, h, (int( _width + _margin * 2 ), int( _height + _margin * 2 )))
                     cv2.imshow('warped', warped)
                     break
-                #elif(vtc==5):
-                #    cv2.putText(frame,'PENTA',(x,y),cv2.FONT_HERSHEY_SIMPLEX,scale,(255,255,255),2,cv2.LINE_AA)
-                #elif(vtc==6):
-                #    cv2.putText(frame,'HEXA',(x,y),cv2.FONT_HERSHEY_SIMPLEX,scale,(255,255,255),2,cv2.LINE_AA)
-            else:
-                #detect and label circle
-                area = cv2.contourArea(contours[i])
-                x,y,w,h = cv2.boundingRect(contours[i])
-                radius = w/2
-                #if(abs(1 - (float(w)/h))<=2 and abs(1-(area/(math.pi*radius*radius)))<=0.2):
-                #    cv2.putText(frame,'CIRC',(x,y),cv2.FONT_HERSHEY_SIMPLEX,scale,(255,255,255),2,cv2.LINE_AA)
 
         #Display the resulting frame
         #out.write(frame)
