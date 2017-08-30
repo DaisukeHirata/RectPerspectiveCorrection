@@ -11,10 +11,9 @@ scale = 2
 #camera
 cap = cv2.VideoCapture(0)
 print("press q to exit")
-
+#correct perspective windows
 _width  = 100.0*6
 _height = 78.0*6
-
 _margin = 0.0
 
 corners = np.array(
@@ -56,11 +55,7 @@ while(cap.isOpened()):
             if(abs(cv2.contourArea(contours[i]))<100 or not(cv2.isContourConvex(approx))):
                 continue
 
-            #triangle
-            if(len(approx) == 3):
-                x,y,w,h = cv2.boundingRect(contours[i])
-                #cv2.putText(frame,'TRI',(x,y),cv2.FONT_HERSHEY_SIMPLEX,scale,(255,255,255),2,cv2.LINE_AA)
-            elif(len(approx)>=4 and len(approx)<=6):
+            if(len(approx)>=4):
                 #nb vertices of a polygonal curve
                 vtc = len(approx)
                 #get cos of all corners
